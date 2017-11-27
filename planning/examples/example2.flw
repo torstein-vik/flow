@@ -1,0 +1,18 @@
+
+// Import semantic class integers
+Import Math { Int }
+
+// Import all subnumbers
+Import Math.Numbers;
+
+// Import addition and multiplication
+Import Math { +, * }
+
+// Defining doubling twice, as x + x and x * 2
+Define double1: Int -> (Int, Int) => :+: Int
+Define double2: Int -> (Int, 2)   => :*: Int
+
+// Test whether double1 is the same as double2, this test should pass
+Test "double1 should be the same as double2" {
+    double1 == double2;
+}
