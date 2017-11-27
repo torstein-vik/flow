@@ -1,0 +1,56 @@
+
+// Define semantic class of integers
+Semantic Int;
+
+// Define semantic singletons 0, 1, 2, 3, 4 all of which integers
+Semantic Singleton 0 :: Int;
+Semantic Singleton 1 :: Int;
+Semantic Singleton 2 :: Int;
+Semantic Singleton 3 :: Int;
+Semantic Singleton 4 :: Int;
+
+// Define semantic functions * and +
+Define *: (Int, Int) => Int;
+Define +: (Int, Int) => Int;
+
+// Adding definitions of addition with 0, 1, 2, 3, and 4
+Define +: (0, 1) => 1;
+Define +: (1, 1) => 2;
+Define +: (2, 1) => 3;
+Define +: (3, 1) => 4;
+
+// Adding commutativity
+Rule commutativity: 
+    (Int, Int) -> 
+    ((Int, Int), (Int, Int)) ->
+    ((Int, Int), (Int, Int)) =>
+    (Int, Int) =>
+    Bool {
+        use (,swap);
+        [use +, use *]; 
+    };
+    
+// Adding associativity
+Rule associativity: 
+    (Int, Int, Int) -> 
+    ((Int, Int, Int),  (Int, Int, Int)) ->
+    (((Int, Int), Int), (Int, (Int, Int))) =>
+    ((Int, Int), (Int, Int)) => 
+    (Int, Int) => 
+    Bool {
+        [use +, use *];
+    }
+
+// Adding distributivity
+Rule distributivity:
+    (Int, Int, Int) -> 
+    ((Int, Int, Int), (Int:1, Int:2, Int:3)) -> 
+    ((Int, (Int, Int)), ((Int:1, Int:2), (Int:1, Int:3))) => :l1: 
+    ((Int, Int), (Int, Int)) => :l2:
+    (Int, Int) => 
+    Bool {
+        l1: use (+,*);
+        l2: use (*,+);
+    }
+
+
