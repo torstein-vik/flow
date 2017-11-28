@@ -1,1 +1,1 @@
-package io.github.torstein-vik.flow
+package io.github.torsteinvik.flow

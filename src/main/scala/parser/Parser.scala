@@ -1,1 +1,1 @@
-package io.github.torstein-vik.flow.parser
+package io.github.torsteinvik.flow.parser

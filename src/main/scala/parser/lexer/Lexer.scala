@@ -1,1 +1,1 @@
-package io.github.torstein-vik.flow.parser.lexer
+package io.github.torsteinvik.flow.parser.lexer

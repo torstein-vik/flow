@@ -1,4 +1,4 @@
-package io.github.torstein-vik.flow.test
+package io.github.torsteinvik.flow.test
 
 import org.scalatest.FunSuite
 
