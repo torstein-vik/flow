@@ -18,5 +18,7 @@ object Lexer {
         case "(" => Some(Token.TupleOpen)
         case ")" => Some(Token.TupleClose)
         case "," => Some(Token.TupleSeparator)
+        case str if str.forall(numeric.contains(_)) => Some(new Token.Identifier(str) with Token.Numeric)
+        case str if str.forall(identifier.contains(_)) => Some(new Token.Identifier(str))
     }
 }
