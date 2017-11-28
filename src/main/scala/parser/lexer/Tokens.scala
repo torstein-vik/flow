@@ -20,4 +20,7 @@ object Token {
     /** Semicolon ';' [[Token]] */
     case object Semicolon extends Token
     
+    /** Machine '=>' [[Token]] */
+    case object Machine extends Token
+    
 }
