@@ -12,5 +12,10 @@ class LexerTest extends FunSuite {
         assert(tokens === Seq(Semantic))
     }
     
+    test ("Lexing 'Semantic A;'") {
+        val tokens = Lexer.getTokens("Semantic A;")
+        assert(tokens === Seq(Semantic, Identifier("A"), Semicolon))
+    }
+    
     }
 }
