@@ -5,4 +5,7 @@ abstract sealed class Token ()
 
 /** Object with all the possible tokens */
 object Token {
+    /** A [[Token]] which is a keyword */
+    trait Keyword extends Token
+    
 }
