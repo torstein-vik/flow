@@ -14,4 +14,7 @@ object Token {
     /** 'Define' [[Keyword]] [[Token]] */
     case object Define extends Token with Keyword
     
+    /** Colon ':', [[Token]] */
+    case object Colon extends Token
+    
 }
