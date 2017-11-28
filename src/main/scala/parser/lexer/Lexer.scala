@@ -8,4 +8,6 @@ object Lexer {
     
     private val identifier = (('a' to 'z') ++ ('A' to 'Z') ++ ('0' to '9')).toSet
     private val numeric = ('0' to '9').toSet
+    private def getToken(string : String) : Option[Token] = string match {
+    }
 }
