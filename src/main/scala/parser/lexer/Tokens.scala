@@ -32,4 +32,7 @@ object Token {
     /** Close tuple ')' [[Token]] */
     case object TupleClose extends Token
     
+    /** Seperate tuple members ',' [[Token]] */
+    case object TupleSeparator extends Token
+    
 }
