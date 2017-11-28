@@ -43,5 +43,7 @@ object Token {
     /** Numeric [[Identifier]], meaning where the name is a number (of arbitrary length) */
     trait Numeric extends Identifier {
          
+        /** The numeric value of this [[Numeric]] [[Identifier]]*/
+        def value : BigInt = BigInt(name) 
     }
 }
