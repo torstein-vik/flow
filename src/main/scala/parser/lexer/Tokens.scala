@@ -8,4 +8,7 @@ object Token {
     /** A [[Token]] which is a keyword */
     trait Keyword extends Token
     
+    /** 'Semantic' [[Keyword]] [[Token]] */
+    case object Semantic extends Token with Keyword
+    
 }
