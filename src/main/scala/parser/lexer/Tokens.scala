@@ -11,4 +11,7 @@ object Token {
     /** 'Semantic' [[Keyword]] [[Token]] */
     case object Semantic extends Token with Keyword
     
+    /** 'Define' [[Keyword]] [[Token]] */
+    case object Define extends Token with Keyword
+    
 }
