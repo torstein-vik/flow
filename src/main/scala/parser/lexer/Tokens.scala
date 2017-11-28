@@ -17,4 +17,7 @@ object Token {
     /** Colon ':', [[Token]] */
     case object Colon extends Token
     
+    /** Semicolon ';' [[Token]] */
+    case object Semicolon extends Token
+    
 }
