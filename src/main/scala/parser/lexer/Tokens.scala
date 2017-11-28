@@ -35,4 +35,8 @@ object Token {
     /** Seperate tuple members ',' [[Token]] */
     case object TupleSeparator extends Token
     
+    /** Identifier [[Token]] 
+     *  @param name the text value of this identifier
+     */
+    case class Identifier (val name : String) extends Token
 }
