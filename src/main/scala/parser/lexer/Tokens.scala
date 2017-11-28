@@ -39,4 +39,9 @@ object Token {
      *  @param name the text value of this identifier
      */
     case class Identifier (val name : String) extends Token
+    
+    /** Numeric [[Identifier]], meaning where the name is a number (of arbitrary length) */
+    trait Numeric extends Identifier {
+         
+    }
 }
