@@ -23,4 +23,7 @@ object Token {
     /** Machine '=>' [[Token]] */
     case object Machine extends Token
     
+    /** Flow operation '->' [[Token]] */
+    case object Flow extends Token
+    
 }
