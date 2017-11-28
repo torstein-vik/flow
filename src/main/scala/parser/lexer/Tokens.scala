@@ -26,4 +26,7 @@ object Token {
     /** Flow operation '->' [[Token]] */
     case object Flow extends Token
     
+    /** Open tuple '(' [[Token]] */
+    case object TupleOpen extends Token
+    
 }
