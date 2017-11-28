@@ -8,18 +8,22 @@ object Lexer {
     
     private val identifier = (('a' to 'z') ++ ('A' to 'Z') ++ ('0' to '9')).toSet
     private val numeric = ('0' to '9').toSet
+    
+    import Token._
     private def getToken(string : String) : Option[Token] = string match {
-        case "Semantic" => Some(Token.Semantic)
-        case "Define" => Some(Token.Define)
-        case ":" => Some(Token.Colon)
-        case ";" => Some(Token.Semicolon)
-        case "=>" => Some(Token.Machine)
-        case "->" => Some(Token.Flow)
-        case "(" => Some(Token.TupleOpen)
-        case ")" => Some(Token.TupleClose)
-        case "," => Some(Token.TupleSeparator)
-        case str if str.forall(numeric.contains(_)) => Some(new Token.Identifier(str) with Token.Numeric)
-        case str if str.forall(identifier.contains(_)) => Some(new Token.Identifier(str))
+        
+        
+        case "Semantic" => Some(Semantic)
+        case "Define" => Some(Define)
+        case ":" => Some(Colon)
+        case ";" => Some(Semicolon)
+        case "=>" => Some(Machine)
+        case "->" => Some(Flow)
+        case "(" => Some(TupleOpen)
+        case ")" => Some(TupleClose)
+        case "," => Some(TupleSeparator)
+        case str if str.forall(numeric.contains(_)) => Some(new Identifier(str) with Numeric)
+        case str if str.forall(identifier.contains(_)) => Some(new Identifier(str))
         case _ => None
     }
 }
