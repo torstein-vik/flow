@@ -29,4 +29,7 @@ object Token {
     /** Open tuple '(' [[Token]] */
     case object TupleOpen extends Token
     
+    /** Close tuple ')' [[Token]] */
+    case object TupleClose extends Token
+    
 }
