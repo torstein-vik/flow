@@ -7,6 +7,12 @@ import org.scalatest.FunSuite
 class LexerTest extends FunSuite {
     import Token._
     
+    test ("Lexer throws LexerExcpetion on illegal input characters") {
+        assertThrows[LexerException] {
+            new Lexer("æøå")
+        }
+    }
+    
     test ("Lexing 'Semantic'") {
         val tokens = Lexer.getTokens("Semantic")
         assert(tokens === Seq(Semantic))
