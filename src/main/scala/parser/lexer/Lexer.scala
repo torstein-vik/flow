@@ -14,6 +14,6 @@ object Lexer {
     import Token._
     
     def getTokens(data : String) : Seq[Token] = {
-        return new Lexer(file).analyze
+        return new Lexer(data).analyze
     }
 }
