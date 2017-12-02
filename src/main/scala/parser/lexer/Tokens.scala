@@ -52,7 +52,11 @@ object Token {
     /** Identifier [[Token]] 
      *  @param name the text value of this identifier
      */
-    case class Identifier (val name : String) extends Token
+    case class Identifier (val name : String) extends Token {
+        
+        private val identifier = (('a' to 'z') ++ ('A' to 'Z') ++ ('0' to '9')).toSet
+        override def accept(str : String) = str.forall(identifier.contains(_))
+    }
     
     /** Numeric [[Identifier]], meaning where the name is a number (of arbitrary length) */
     trait Numeric extends Identifier {
