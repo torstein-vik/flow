@@ -1,7 +1,10 @@
 package io.github.torsteinvik.flow.parser.lexer
 
 /** A token coming from the lexing of the input code */
-abstract sealed class Token ()
+abstract sealed class Token () {
+    /** Returns true if the input string matches this token */
+    def accept(str : String) : Boolean
+}
 
 /** Object with all the possible tokens */
 object Token {
