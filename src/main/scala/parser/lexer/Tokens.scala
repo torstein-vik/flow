@@ -69,4 +69,10 @@ object Token {
         /** The numeric value of this [[Numeric]] [[Identifier]]*/
         def value : BigInt = BigInt(name) 
     }
+    
+    /** String Literal [[Token]] 
+     *  @param content the content of this string literal
+     */
+    case class StringLiteral (val content : String) extends FixedToken("\"" + content + "\"")
+    
 }
