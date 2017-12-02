@@ -5,6 +5,8 @@ class Lexer (seq : Seq[Char]) {
     import Lexer._
     import Token._
     
+    if (!seq.forall(legalchars.contains(_))) throw LexerException("Input contains illegal characters! " + seq.filter(legalchars.contains(_)))
+    
 }
 
 object Lexer {
