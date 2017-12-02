@@ -7,6 +7,9 @@ class Lexer (seq : Seq[Char]) {
     
     if (!seq.forall(legalchars.contains(_))) throw LexerException("Input contains illegal characters! " + seq.filter(legalchars.contains(_)))
     
+    def analyze : Seq[Token] = {
+        return Seq.empty[Token]
+    }
 }
 
 object Lexer {
