@@ -5,7 +5,6 @@ class Lexer (seq : Seq[Char]) {
     import Lexer._
     import Token._
     
-    
     def analyze : Seq[Token] = {
         return Seq.empty[Token]
     }
@@ -13,10 +12,8 @@ class Lexer (seq : Seq[Char]) {
 
 object Lexer {
     import Token._
+    
     def getTokens(file : String) : Seq[Token] = {
         return new Lexer(file).analyze
     }
-    
-    
-    
 }
