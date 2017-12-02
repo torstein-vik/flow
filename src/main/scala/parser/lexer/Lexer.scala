@@ -6,7 +6,12 @@ class Lexer (data : String) {
     import Token._
     
     def analyze : Seq[Token] = {
-        return Seq.empty[Token]
+        import scala.collection.mutable.{Seq => MSeq}
+        var analysis : MSeq[Either[String, Token]] = MSeq(Left(data))
+        
+        
+        
+        return for {Right(token) <- analysis} yield token
     }
 }
 
