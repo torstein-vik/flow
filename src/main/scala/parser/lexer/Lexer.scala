@@ -5,7 +5,6 @@ class Lexer (seq : Seq[Char]) {
     import Lexer._
     import Token._
     
-    if (!seq.forall(legalchars.contains(_))) throw LexerException("Input contains illegal characters! " + seq.filter(legalchars.contains(_)))
     
     def analyze : Seq[Token] = {
         return Seq.empty[Token]
@@ -19,6 +18,5 @@ object Lexer {
     }
     
     
-    private val legalchars = (('a' to 'z') ++ ('A' to 'Z') ++ ('0' to '9')).toSet ++ Set(' ', '\n', ':', ';', '=', '>', '-', '(', ')', ',')
     
 }
