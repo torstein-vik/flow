@@ -2,18 +2,18 @@ package io.github.torsteinvik.flow.parser.lexer
 
 /** A token coming from the lexing of the input code */
 abstract sealed class Token () {
-    /** Returns true if the input string matches this token */
-    def accept(str : String) : Boolean
+    /** Returns the text representation of this Token */
+    def chars : String
 }
 
 /** Object with all the possible tokens */
 object Token {
-    /** A [[Token]] which only matches a fixed string */
+    /** A [[Token]] whose chars is a fixed string */
     abstract class FixedToken(token : String) extends Token {
-        override def accept (str : String) = token == str
+        override def chars = token
     }
     
-    /** A [[Token]] which is a keyword */
+    /** A [[FixedToken]] which is a keyword */
     abstract class Keyword(keyword : String) extends FixedToken(keyword) 
     
     /** 'Semantic' [[Keyword]] [[Token]] */
@@ -52,17 +52,10 @@ object Token {
     /** Identifier [[Token]] 
      *  @param name the text value of this identifier
      */
-    case class Identifier (val name : String) extends Token {
-        
-        private val identifier = (('a' to 'z') ++ ('A' to 'Z') ++ ('0' to '9')).toSet
-        override def accept(str : String) = str.forall(identifier.contains(_))
-    }
+    case class Identifier (val name : String) extends FixedToken(name)
     
     /** Numeric [[Identifier]], meaning where the name is a number (of arbitrary length) */
     trait Numeric extends Identifier {
-        
-        private val numeric = ('0' to '9').toSet
-        override def accept(str : String) = str.forall(numeric.contains(_))
         
         /** The numeric value of this [[Numeric]] [[Identifier]]*/
         def value : BigInt = BigInt(name) 
