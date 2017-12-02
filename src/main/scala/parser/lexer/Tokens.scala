@@ -8,6 +8,11 @@ abstract sealed class Token () {
 
 /** Object with all the possible tokens */
 object Token {
+    /** A [[Token]] which only matches a fixed string */
+    abstract class FixedToken(token : String) extends Token {
+        override def accept (str : String) = token == str
+    }
+    
     /** A [[Token]] which is a keyword */
     trait Keyword extends Token
     
