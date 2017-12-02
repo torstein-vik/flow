@@ -1,6 +1,12 @@
 package io.github.torsteinvik.flow.parser.lexer
 
 
+class Lexer (seq : Seq[Char]) {
+    import Lexer._
+    import Token._
+    
+}
+
 object Lexer {
     import Token._
     def getTokens(file : String) : Seq[Token] = {
