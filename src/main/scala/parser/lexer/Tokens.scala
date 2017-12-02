@@ -60,7 +60,10 @@ object Token {
     
     /** Numeric [[Identifier]], meaning where the name is a number (of arbitrary length) */
     trait Numeric extends Identifier {
-         
+        
+        private val numeric = ('0' to '9').toSet
+        override def accept(str : String) = str.forall(numeric.contains(_))
+        
         /** The numeric value of this [[Numeric]] [[Identifier]]*/
         def value : BigInt = BigInt(name) 
     }
