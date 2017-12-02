@@ -52,10 +52,10 @@ object Token {
     /** Comment line starter '//' [[Token]] */
     case object CommentLineStarter extends FixedToken("//")
     
-    /** Multiline comment starter '/\*' [[Token]] */
+    /** Multiline comment starter [[Token]] */
     case object CommentStarter extends FixedToken("/*")
     
-    /** Multiline comment starter '*\/' [[Token]] */
+    /** Multiline comment starter [[Token]] */
     case object CommentTerminator extends FixedToken("*/")
     
     /** Identifier [[Token]] 
