@@ -6,8 +6,8 @@ object Lexer {
         return Seq.empty[Token]
     }
     
-    private val identifier = (('a' to 'z') ++ ('A' to 'Z') ++ ('0' to '9')).toSet
-    private val numeric = ('0' to '9').toSet
     
     import Token._
+    private val legalchars = (('a' to 'z') ++ ('A' to 'Z') ++ ('0' to '9')).toSet ++ Set(' ', '\n', ':', ';', '=', '>', '-', '(', ')', ',')
+    
 }
