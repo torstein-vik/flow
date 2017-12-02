@@ -17,31 +17,31 @@ object Token {
     abstract class Keyword(keyword : String) extends FixedToken(keyword) 
     
     /** 'Semantic' [[Keyword]] [[Token]] */
-    case object Semantic extends Token with Keyword
+    case object Semantic extends Keyword("Semantic")
     
     /** 'Define' [[Keyword]] [[Token]] */
-    case object Define extends Token with Keyword
+    case object Define extends Keyword("Define")
     
     /** Colon ':', [[Token]] */
-    case object Colon extends Token
+    case object Colon extends FixedToken(":")
     
     /** Semicolon ';' [[Token]] */
-    case object Semicolon extends Token
+    case object Semicolon extends FixedToken(";")
     
     /** Machine '=>' [[Token]] */
-    case object Machine extends Token
+    case object Machine extends FixedToken("=>")
     
     /** Flow operation '->' [[Token]] */
-    case object Flow extends Token
+    case object Flow extends FixedToken("->")
     
     /** Open tuple '(' [[Token]] */
-    case object TupleOpen extends Token
+    case object TupleOpen extends FixedToken("(")
     
     /** Close tuple ')' [[Token]] */
-    case object TupleClose extends Token
+    case object TupleClose extends FixedToken(")")
     
     /** Seperate tuple members ',' [[Token]] */
-    case object TupleSeparator extends Token
+    case object TupleSeparator extends FixedToken(",")
     
     /** Identifier [[Token]] 
      *  @param name the text value of this identifier
