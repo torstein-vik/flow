@@ -25,6 +25,7 @@ object Lexer extends RegexParsers {
     def identifier : Parser[Token] = """[A-Za-z0-9]+""".r ^^ (new Identifier(_))
     
     def singlelinecomment : Parser[Token] = """\/\/.*\n""".r ^^ (Comment(_))
+    def multilinecomment : Parser[Token] = """\/\*((?!\*\/).|\n)*\*\/""".r ^^ (Comment(_))
     
-    def total : Parser[Seq[Token]] = (singlelinecomment | fixedToken | numeric | identifier).*
+    def total : Parser[Seq[Token]] = (multilinecomment | singlelinecomment | fixedToken | numeric | identifier).*
 }
