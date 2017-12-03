@@ -9,7 +9,10 @@ object Lexer extends RegexParsers {
     import Token._
     
     def getTokens(data : String) : Seq[Token] = parseAll(total, data) match {
-        case Success(result, _) => result
+        case Success(result, _) => result.filter{
+            case Comment(_) => false
+            case _ => true
+        }
         case Failure(msg, _) => throw LexerException(msg)
         case Error(msg, _) => throw LexerException(msg)
     }
