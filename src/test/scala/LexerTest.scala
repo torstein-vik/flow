@@ -59,3 +59,8 @@ class BasicLexerTest extends FunSuite {
     }
 }
 
+class FileLexerTest extends FunSuite {
+    import Token._
+    
+    
+}
