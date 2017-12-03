@@ -4,7 +4,7 @@ import io.github.torsteinvik.flow.parser.lexer._
 
 import org.scalatest.FunSuite
 
-class LexerTest extends FunSuite {
+class BasicLexerTest extends FunSuite {
     import Token._
     
     test ("Lexing keywords") {
