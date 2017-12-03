@@ -7,9 +7,10 @@ import org.scalatest.FunSuite
 class LexerTest extends FunSuite {
     import Token._
     
-    test ("Lexing 'Semantic'") {
-        val tokens = Lexer.getTokens("Semantic")
-        assert(tokens === Seq(Semantic))
+    test ("Lexing keywords") {
+        assert(Lexer.getTokens("Semantic") === Seq(Semantic))
+        assert(Lexer.getTokens("Define") === Seq(Define))
+    }
     }
     
     test ("Lexing 'Semantic A;'") {
