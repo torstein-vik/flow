@@ -46,10 +46,10 @@ class LexerTest extends FunSuite {
     }
     
     test ("Ignoring singleline comments") {
-        assert(Lexer.getTokens("// Hey im a comment \n Semantic A;\n // hey again!\n") === Seq(Newline, Semantic, Identifier("A"), Semicolon, Newline, Newline))
+        assert(Lexer.getTokens("// Hey im a comment \n Semantic A;\n // hey again!\n") === Seq(Semantic, Identifier("A"), Semicolon))
     }
     
     test ("Ignoring multiline comments") {
-        assert(Lexer.getTokens("Semantic /* hey im a comment*/ A;\n/* hey \n im \n a \n multiline \n comment \n*/ Define;") === Seq(Semantic, Identifier("A"), Semicolon, Newline, Define, Semicolon))
+        assert(Lexer.getTokens("Semantic /* hey im a comment*/ A;\n/* hey \n im \n a \n multiline \n comment \n*/ Define;") === Seq(Semantic, Identifier("A"), Semicolon, Define, Semicolon))
     }
 }
