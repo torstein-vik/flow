@@ -61,6 +61,12 @@ class BasicLexerTest extends FunSuite {
 
 class FileLexerTest extends FunSuite {
     import Token._
+    import scala.io.Source
     
+    test ("Lexing example1.flw") {
+        val source = Source.fromURL(getClass.getResource("/example1.flw"))
+        val file = try source.mkString finally source.close
+        assert(Lexer.getTokens(file) === Seq(Semantic, Identifier("A"), Semicolon, Define, Identifier("f"), Colon, Identifier("A"), Machine, Identifier("A"), Semicolon))
+    }
     
 }
