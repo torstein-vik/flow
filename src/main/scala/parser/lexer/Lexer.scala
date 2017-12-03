@@ -18,4 +18,8 @@ object Lexer extends RegexParsers {
     
     def fixedToken : Parser[Token] = fixedTokens.map(token => token.chars ^^^ token).reduceLeft(_ | _)
     def total : Parser[Seq[Token]] = fixedToken.*
+    
+    def numeric : Parser[Token] = """-?\d+""".r ^^ (new Identifier(_) with Numeric)
+    def identifier : Parser[Token] = """[A-Za-z0-9]+""".r ^^ (new Identifier(_))
+    
 }
