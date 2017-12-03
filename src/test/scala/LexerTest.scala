@@ -37,4 +37,11 @@ class LexerTest extends FunSuite {
         assert(tokens(0).isInstanceOf[Numeric])
         assert(tokens(0).asInstanceOf[Numeric].value === BigInt(123456))
     }
+    
+    test ("Lexing '-123456'") {
+        val tokens = Lexer.getTokens("-123456")
+        assert(tokens === Seq(Numeric(-123456)))
+        assert(tokens(0).isInstanceOf[Numeric])
+        assert(tokens(0).asInstanceOf[Numeric].value === BigInt(-123456))
+    }
 }
