@@ -44,4 +44,9 @@ class LexerTest extends FunSuite {
         assert(tokens(0).isInstanceOf[Numeric])
         assert(tokens(0).asInstanceOf[Numeric].value === BigInt(-123456))
     }
+    
+    test ("Ignoring singleline comments") {
+        assert(Lexer.getTokens("// Hey im a comment \n Semantic A;\n // hey again!\n") === Seq(Newline, Semantic, Identifier("A"), Semicolon, Newline, Newline))
+    }
+    
 }
