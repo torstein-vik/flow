@@ -16,6 +16,6 @@ object Lexer extends RegexParsers {
     
     val fixedTokens = Seq(Semantic, Define, Colon, Semicolon, Machine, Flow, TupleOpen, TupleClose, TupleSeparator)
     
-    def fixedToken : Parser[Token] = fixedTokens.map(token => Regex.quote(token.chars).r ^^^ token).reduceLeft(_ | _)
+    def fixedToken : Parser[Token] = fixedTokens.map(token => token.chars ^^^ token).reduceLeft(_ | _)
     def total : Parser[Seq[Token]] = fixedToken.*
 }
