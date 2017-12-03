@@ -1,0 +1,12 @@
+
+// This is a comment
+
+/* 
+This is a multiline comment 
+*/
+
+// Define A as a semantic class
+Semantic A;
+
+// Define f as some machine from A to A
+Define f: A => A;
