@@ -49,6 +49,8 @@ object Token {
     /** New line '\n' [[Token]] */
     case object Newline extends FixedToken("\n")
     
+    case class Comment(content : String) extends FixedToken("/* " + content + " */")
+    
     /** Identifier [[Token]] 
      *  @param name the text value of this identifier
      */
