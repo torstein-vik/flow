@@ -4,8 +4,8 @@ import scala.util.parsing.combinator._
 import scala.util.matching.Regex
 
 
-object Lexer {
 
+object Lexer extends RegexParsers {
     import Token._
     
     def getTokens(data : String) : Seq[Token] = {
