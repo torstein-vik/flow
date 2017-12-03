@@ -70,11 +70,9 @@ object Token {
         def value : BigInt = BigInt(name) 
     }
     
-    val stringLiteralStartDelimiter = "\""
-    val stringLiteralEndDelimiter = "\""
     /** String Literal [[Token]] 
      *  @param content the content of this string literal
      */
-    case class StringLiteral (val content : String) extends FixedToken(stringLiteralStartDelimiter + content + stringLiteralEndDelimiter)
+    case class StringLiteral (val content : String) extends FixedToken("\"" + content + "\"")
     
 }
