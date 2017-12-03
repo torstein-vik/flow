@@ -49,15 +49,6 @@ object Token {
     /** New line '\n' [[Token]] */
     case object Newline extends FixedToken("\n")
     
-    /** Comment line starter '//' [[Token]] */
-    case object CommentLineStarter extends FixedToken("//")
-    
-    /** Multiline comment starter [[Token]] */
-    case object CommentStarter extends FixedToken("/*")
-    
-    /** Multiline comment starter [[Token]] */
-    case object CommentTerminator extends FixedToken("*/")
-    
     /** Identifier [[Token]] 
      *  @param name the text value of this identifier
      */
