@@ -43,12 +43,6 @@ object Token {
     /** Seperate tuple members ',' [[Token]] */
     case object TupleSeparator extends FixedToken(",")
     
-    /** Empty space ' ' [[Token]] */
-    case object Space extends FixedToken(" ")
-    
-    /** New line '\n' [[Token]] */
-    case object Newline extends FixedToken("\n")
-    
     case class Comment(content : String) extends FixedToken("/* " + content + " */")
     
     /** Identifier [[Token]] 
