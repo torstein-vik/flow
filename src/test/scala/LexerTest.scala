@@ -52,4 +52,10 @@ class BasicLexerTest extends FunSuite {
     test ("Ignoring multiline comments") {
         assert(Lexer.getTokens("Semantic /* hey im a comment*/ A;\n/* hey \n im \n a \n multiline \n comment \n*/ Define;") === Seq(Semantic, Identifier("A"), Semicolon, Define, Semicolon))
     }
+    
+    test ("Ignoring whitespace and newline") {
+        assert(Lexer.getTokens("Semantic    ;") === Seq(Semantic, Semicolon))
+        assert(Lexer.getTokens("\n\nSemantic;\n\n") === Seq(Semantic, Semicolon))
+    }
 }
+
