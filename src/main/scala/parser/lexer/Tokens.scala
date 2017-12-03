@@ -66,9 +66,9 @@ object Token {
         def unapply (num : Numeric) : BigInt = num.value
     }
     
-    /** String Literal [[Token]] 
+    /* /** String Literal [[Token]] 
      *  @param content the content of this string literal
      */
-    case class StringLiteral (val content : String) extends FixedToken("\"" + content + "\"")
+    case class StringLiteral (val content : String) extends FixedToken("\"" + content + "\"")*/
     
 }
