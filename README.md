@@ -6,7 +6,14 @@
 
 ## Installation
 
-Nothing to install yet...
+There is no finished compiler yet, but feel free to install and test the codebase anyway:
+
+1. Clone this repo to your computer
+2. Make sure you have SBT (simple build tool) installed on your computer
+3. Run 'sbt' in the main directory to start SBT
+4. Inside SBT, run 'test' to test the codebase 
+
+Please tell us if this doesn't work, because that means something is wrong with our instructions.
 
 ## Contributors
 
