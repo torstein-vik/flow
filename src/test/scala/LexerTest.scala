@@ -22,6 +22,8 @@ class LexerTest extends FunSuite {
         assert(Lexer.getTokens(",") === Seq(TupleSeparator))
     }
     
+    test ("Lexing tuples") {
+        assert(Lexer.getTokens("(1, 2, 3)") === Seq(TupleOpen, Numeric(1), TupleSeparator, Numeric(2), TupleSeparator, Numeric(3), TupleClose))
     }
     
     test ("Lexing 'Semantic A;'") {
