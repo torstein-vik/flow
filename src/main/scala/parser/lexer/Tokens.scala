@@ -43,6 +43,7 @@ object Token {
     /** Seperate tuple members ',' [[Token]] */
     case object TupleSeparator extends FixedToken(",")
     
+    /** [[Token]] for single- and multiline-comments, normally removed before further pasing */
     case class Comment(content : String) extends FixedToken("/* " + content + " */")
     
     /** Identifier [[Token]] 
@@ -57,8 +58,11 @@ object Token {
         def value : BigInt = BigInt(name) 
     }
     
+    /** An object for creating (and pattern matching) [[Numeric]] [[Identifier]]s*/
     object Numeric {
+        /** Returns a [[Numeric]] [[Identifier]] given some BigInt*/
         def apply (n : BigInt) : Numeric = new Identifier(n.toString) with Numeric
+        /** Returns the underlying BigInt of a [[Numeric]] [[Identifier]]*/
         def unapply (num : Numeric) : BigInt = num.value
     }
     
