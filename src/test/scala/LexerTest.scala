@@ -11,6 +11,17 @@ class LexerTest extends FunSuite {
         assert(Lexer.getTokens("Semantic") === Seq(Semantic))
         assert(Lexer.getTokens("Define") === Seq(Define))
     }
+    
+    test ("Lexing notation") {
+        assert(Lexer.getTokens(":") === Seq(Colon))
+        assert(Lexer.getTokens(";") === Seq(Semicolon))
+        assert(Lexer.getTokens("=>") === Seq(Machine))
+        assert(Lexer.getTokens("->") === Seq(Flow))
+        assert(Lexer.getTokens("(") === Seq(TupleOpen))
+        assert(Lexer.getTokens(")") === Seq(TupleClose))
+        assert(Lexer.getTokens(",") === Seq(TupleSeparator))
+    }
+    
     }
     
     test ("Lexing 'Semantic A;'") {
