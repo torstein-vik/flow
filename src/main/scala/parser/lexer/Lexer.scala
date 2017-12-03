@@ -13,8 +13,9 @@ object Lexer extends RegexParsers {
             case Comment(_) => false
             case _ => true
         }
-        case Failure(msg, next) => throw LexerException(msg + "\n" + next.pos.longString)
-        case Error(msg, next) => throw LexerException(msg + "\n" + next.pos.longString)
+        
+        case Failure(msg, next) => throw LexerException(msg, next.pos)
+        case Error(msg, next) => throw LexerException(msg, next.pos)
     }
     
     val fixedTokens = Seq(Semantic, Define, Colon, Semicolon, Machine, Flow, TupleOpen, TupleClose, TupleSeparator)
