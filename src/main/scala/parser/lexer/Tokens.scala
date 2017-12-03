@@ -61,6 +61,11 @@ object Token {
         def value : BigInt = BigInt(name) 
     }
     
+    object Numeric {
+        def apply (n : BigInt) : Numeric = new Identifier(n.toString) with Numeric
+        def unapply (num : Numeric) : BigInt = num.value
+    }
+    
     /** String Literal [[Token]] 
      *  @param content the content of this string literal
      */
