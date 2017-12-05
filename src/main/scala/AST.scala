@@ -37,9 +37,21 @@ object AST {
      */
     case class IdentifiedMachine (identifier : parser.lexer.Token.Identifier) extends Machine
     
+    /** An abstract class for the specification of a [[Machine]]. Implemented using a chain-based system. */
     abstract sealed class MachineSpec
+    /** Terminator of a [[MachineSpec]] chain
+     *  @param output The [[FlowTerm]] that the [[MachineSpec]] chains terminates with
+     */
     case class FinalOutput(ouput : FlowTerm) extends MachineSpec
+    /** Part of a [[MachineSpec]] chain with machine-based inference
+     *  @param current The [[FlowTerm]] that the MachineSpec chain is currently at
+     *  @param next The next [[MachineSpec]] in the chain
+     */
     case class MachineTo(current : FlowTerm, next : MachineSpec) extends MachineSpec
+    /** Part of a [[MachineSpec]] chain with flow-based inference
+     *  @param current The [[FlowTerm]] that the MachineSpec chain is currently at
+     *  @param next The next [[MachineSpec]] in the chain
+     */
     case class FlowTo(current : FlowTerm, next : MachineSpec) extends MachineSpec
     
     /** A term in a [[MachineSpec]] chain, implemented as a tree of tuples */
