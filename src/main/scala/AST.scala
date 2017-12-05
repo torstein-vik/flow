@@ -22,4 +22,9 @@ object AST {
      *  @param machinespec specification of this machine
      */
     case class Define(machine : parser.lexer.Token.Identifier, machinespec : MachineSpec)
+    
+    abstract sealed class Class
+    
+    abstract sealed class Machine
+    
 }
