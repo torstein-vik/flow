@@ -6,4 +6,7 @@ abstract sealed class AST
 
 /** Object with [[AST]] implementation */
 object AST {
+    case class Block(stmts : Statement*) extends AST
+    
+    abstract sealed class Statement 
 }
