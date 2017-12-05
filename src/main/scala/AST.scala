@@ -9,4 +9,6 @@ object AST {
     case class Block(stmts : Statement*) extends AST
     
     abstract sealed class Statement 
+    case class Semantic(classes : parser.lexer.Token.Identifier*)
+    case class Define(machine : parser.lexer.Token.Identifier, machinespec : MachineSpec)
 }
