@@ -23,10 +23,18 @@ object AST {
      */
     case class Define(machine : parser.lexer.Token.Identifier, machinespec : MachineSpec)
     
+    /** An abstract class for values corresponding to a class */
     abstract sealed class Class
+    /** A [[Class]] coming from an [[parser.lexer.Token.Identifier]] 
+     *  @param identifier The [[parser.lexer.Token.Identifier]] for this IdentifiedClass
+     */
     case class IdentifiedClass (identifier : parser.lexer.Token.Identifier) extends Class
     
+    /** An abstract class for values corresponding to a class */
     abstract sealed class Machine
+    /** A [[Machine]] coming from an [[parser.lexer.Token.Identifier]] 
+     *  @param identifier The [[parser.lexer.Token.Identifier]] for this IdentifiedClass
+     */
     case class IdentifiedMachine (identifier : parser.lexer.Token.Identifier) extends Machine
     
 }
