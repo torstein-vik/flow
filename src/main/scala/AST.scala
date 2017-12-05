@@ -24,7 +24,9 @@ object AST {
     case class Define(machine : parser.lexer.Token.Identifier, machinespec : MachineSpec)
     
     abstract sealed class Class
+    case class IdentifiedClass (identifier : parser.lexer.Token.Identifier) extends Class
     
     abstract sealed class Machine
+    case class IdentifiedMachine (identifier : parser.lexer.Token.Identifier) extends Machine
     
 }
