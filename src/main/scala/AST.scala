@@ -37,7 +37,15 @@ object AST {
      */
     case class IdentifiedMachine (identifier : parser.lexer.Token.Identifier) extends Machine
     
+    
+    /** A term in a [[MachineSpec]] chain, implemented as a tree of tuples */
     abstract sealed class FlowTerm
+    /** A leaf in the [[FlowTerm]] tree
+     *  @param leaf The [[Class]] in this leaf node
+     */
     case class ClassTerm(leaf : Class) extends FlowTerm
+    /** A node in the [[FlowTerm]] tree, with sub-[[FlowTerm]]s
+     *  @param nodes The subnodes of this node
+     */
     case class TupleTerm(nodes : FlowTerm*) extends FlowTerm
 }
