@@ -16,12 +16,12 @@ object AST {
     /** A [[Statement]] which declares a semantic class 
      *  @param classes list of [[parser.lexer.Token.Identifier]]s to be declared as classes
      */
-    case class Semantic(classes : parser.lexer.Token.Identifier*)
+    case class Semantic(classes : parser.lexer.Token.Identifier*) extends Statement
     /** A [[Statement]] which defines a machine 
      *  @param machine [[parser.lexer.Token.Identifier]] of the new machine
      *  @param machinespec specification of this machine
      */
-    case class Define(machine : parser.lexer.Token.Identifier, machinespec : MachineSpec)
+    case class Define(machine : parser.lexer.Token.Identifier, machinespec : MachineSpec) extends Statement
     
     /** An abstract class for values corresponding to a class */
     abstract sealed class Class
