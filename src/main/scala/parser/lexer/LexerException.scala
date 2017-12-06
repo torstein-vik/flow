@@ -7,4 +7,4 @@ import scala.util.parsing.input._
  *  @param pos position in the input
  */
 case class LexerException(msg : String, pos : Position) extends 
-    Exception("Syntax error at line " + pos.line + " column " + pos.column + "\n" + pos.longString)
+    Exception("Lexical error at line " + pos.line + " column " + pos.column + "\n" + pos.longString)
