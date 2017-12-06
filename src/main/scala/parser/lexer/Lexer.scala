@@ -39,5 +39,5 @@ object Lexer extends RegexParsers {
     def multilinecomment : Parser[Token] = """\/\*((?!\*\/).|\r?\n)*\*\/""".r ^^ (Comment(_))
     
     /** Parser for everything put together */
-    def total : Parser[Seq[Token]] = (multilinecomment | singlelinecomment | fixedToken | numeric | identifier).*
+    def total : Parser[Seq[Token]] = positioned(multilinecomment | singlelinecomment | fixedToken | numeric | identifier).*
 }
