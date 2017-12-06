@@ -24,6 +24,12 @@ class BasicParserTest extends FunSuite {
         assert(ast === Block(Semantic(Identifier("A"))))
     }
     
+    test ("Parsing 'Define f: X => Y;'") {
+        val ast = Parser.getAST("Define f: X => Y;")
+        assert(ast === Block(Define(Identifier("f"), 
+            MachineTo(ClassTerm(IdentifiedClass(Identifier("X"))), 
+            FinalOutput(ClassTerm(IdentifiedClass(Identifier("Y"))))))))
+    }
     
     
 }
