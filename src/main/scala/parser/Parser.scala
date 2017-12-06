@@ -12,4 +12,9 @@ object Parser extends Parsers {
 
     def block : Parser[AST] = success(AST.Block())
     
+    def getASTFromTokens (tokens : Seq[Token]) : AST = phrase(block)(new TokenReader(tokens)) match {
+        case Success(result, _) => result
+        case Failure(msg, next) => throw ParserException(msg, next.pos)
+        case Error(msg, next) => throw ParserException(msg, next.pos)
+    }
 }
