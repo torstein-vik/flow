@@ -10,6 +10,12 @@ abstract sealed class Token extends Positional {
 
 /** Object with all the possible tokens */
 object Token {
+    
+    /** A [[Token]] for end of stream */
+    case object EndToken extends Token {
+        override def chars = ""
+    }
+    
     /** A [[Token]] whose chars is a fixed string */
     abstract class FixedToken(token : String) extends Token {
         override def chars = token
