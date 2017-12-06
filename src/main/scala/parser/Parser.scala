@@ -26,6 +26,7 @@ object Parser extends Parsers {
     def statement : Parser[Statement] = (semantic | define)
     def semantic : Parser[AST.Semantic] = (Token.Semantic ~> rep1sep(identifier, TupleSeparator)) ^^ (AST.Semantic(_ : _*))
     def flowterm : Parser[FlowTerm] = tupleterm | classterm
+    def tupleterm : Parser[TupleTerm] = (TupleOpen ~> repsep(flowterm, TupleSeparator) <~ TupleClose) ^^ (TupleTerm(_ : _*))
     def classterm : Parser[ClassTerm] = classvalue ^^ (ClassTerm(_))
     
     def classvalue : Parser[AST.Class] = identifiedclass
