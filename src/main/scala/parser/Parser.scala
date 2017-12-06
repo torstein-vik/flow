@@ -8,6 +8,7 @@ import scala.util.parsing.combinator._
 object Parser extends Parsers {
     type Elem = Token
     
+    def getAST (data : String) : AST = getASTFromTokens(Lexer.getTokens(data))
 
     def block : Parser[AST] = success(AST.Block())
     
