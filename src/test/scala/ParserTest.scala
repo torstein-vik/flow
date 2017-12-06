@@ -31,6 +31,12 @@ class BasicParserTest extends FunSuite {
             FinalOutput(ClassTerm(IdentifiedClass(Identifier("Y"))))))))
     }
     
+    test ("Parsing 'Define g: (X, Y) -> (Y, X);'") {
+        val ast = Parser.getAST("Define g: (X, Y) -> (Y, X);")
+        assert(ast === Block(Define(Identifier("g"), 
+            FlowTo(TupleTerm(ClassTerm(IdentifiedClass(Identifier("X"))), ClassTerm(IdentifiedClass(Identifier("Y")))), 
+            FinalOutput(TupleTerm(ClassTerm(IdentifiedClass(Identifier("Y"))), ClassTerm(IdentifiedClass(Identifier("X")))))))))
+    }
     
 }
 
