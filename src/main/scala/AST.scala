@@ -6,7 +6,7 @@ abstract sealed class AST
 
 /** Object with [[AST]] implementation */
 object AST {
-    /** A list of to [[Statement]]s to be 'exectued' 
+    /** A list of to [[Statement]]s to be 'executed' 
      *  @param stmts List of [[Statement]] that this block 'executes'
      */
     case class Block(stmts : Statement*) extends AST
