@@ -1,7 +1,9 @@
 package io.github.torsteinvik.flow.parser.lexer
 
+import scala.util.parsing.input._
+
 /** A token coming from the lexing of the input code */
-abstract sealed class Token () {
+abstract sealed class Token extends Positional {
     /** Returns the text representation of this Token */
     def chars : String
 }
