@@ -20,4 +20,7 @@ object Parser extends Parsers {
     }
     
     def identifier : Parser[Identifier] = elem("Identifer", (_ : Elem).isInstanceOf[Identifier]) ^^ (_.asInstanceOf[Identifier])
+    
+    def block : Parser[AST] = (statement <~ Semicolon).* ^^ (Block(_ : _*))
+    
 }
