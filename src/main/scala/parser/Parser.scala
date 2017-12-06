@@ -19,4 +19,5 @@ object Parser extends Parsers {
         case Error(msg, next) => throw ParserException(msg, next.pos)
     }
     
+    def identifier : Parser[Identifier] = elem("Identifer", (_ : Elem).isInstanceOf[Identifier]) ^^ (_.asInstanceOf[Identifier])
 }
