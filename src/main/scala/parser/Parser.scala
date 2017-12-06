@@ -24,4 +24,6 @@ object Parser extends Parsers {
     def block : Parser[AST] = (statement <~ Semicolon).* ^^ (Block(_ : _*))
     
     def statement : Parser[Statement] = (semantic)
+    def semantic : Parser[AST.Semantic] = (Token.Semantic ~> rep1sep(identifier, Colon)) ^^ (AST.Semantic(_ : _*))
+    
 }
