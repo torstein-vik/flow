@@ -51,5 +51,12 @@ class FileParserTest extends FunSuite {
     import AST._
     import scala.io.Source
     
+    test ("Parsing example1.flw") {
+        val source = Source.fromURL(getClass.getResource("/example1.flw"))
+        val file = try source.mkString finally source.close
+        assert(Parser.getAST(file) === Block(Semantic(Identifier("A")), Define(Identifier("f"), 
+            MachineTo(ClassTerm(IdentifiedClass(Identifier("A"))), 
+            FinalOutput(ClassTerm(IdentifiedClass(Identifier("A"))))))))
+    }
     
 }
