@@ -25,5 +25,7 @@ object Parser extends Parsers {
     
     def statement : Parser[Statement] = (semantic | define)
     def semantic : Parser[AST.Semantic] = (Token.Semantic ~> rep1sep(identifier, TupleSeparator)) ^^ (AST.Semantic(_ : _*))
+    def classvalue : Parser[AST.Class] = identifiedclass
+    def identifiedclass : Parser[IdentifiedClass] = identifier ^^ (IdentifiedClass(_))
     
 }
