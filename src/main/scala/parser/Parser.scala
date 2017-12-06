@@ -6,6 +6,9 @@ import io.github.torsteinvik.flow.parser.lexer._
 import scala.util.parsing.combinator._
 
 object Parser extends Parsers {
+    import Token._
+    import AST._
+    
     type Elem = Token
     
     def getAST (data : String) : AST = getASTFromTokens(Lexer.getTokens(data))
