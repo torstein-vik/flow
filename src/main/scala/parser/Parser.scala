@@ -20,4 +20,5 @@ object Parser extends Parsers {
         case Failure(msg, next) => throw ParserException(msg, next.pos)
         case Error(msg, next) => throw ParserException(msg, next.pos)
     }
+    
 }
