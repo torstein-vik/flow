@@ -14,7 +14,15 @@ class BasicParserTest extends FunSuite {
         assert(ast === Block(Semantic(Identifier("A"))))
     }
     
+    test ("Ignoring singleline comments") {
+        val ast = Parser.getAST("// Hey im a comment \n Semantic A;\n // hey again!\n")
+        assert(ast === Block(Semantic(Identifier("A"))))
+    }
     
+    test ("Ignoring multiline comments") {
+        val ast = Parser.getAST("Semantic /* hey im a comment*/ A;\n/* hey \n im \n a \n multiline \n comment \n*/")
+        assert(ast === Block(Semantic(Identifier("A"))))
+    }
     
     
     
