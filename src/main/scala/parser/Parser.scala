@@ -23,4 +23,5 @@ object Parser extends Parsers {
     
     def block : Parser[AST] = (statement <~ Semicolon).* ^^ (Block(_ : _*))
     
+    def statement : Parser[Statement] = (semantic)
 }
