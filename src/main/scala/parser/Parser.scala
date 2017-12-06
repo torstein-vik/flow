@@ -12,8 +12,6 @@ object Parser extends Parsers {
     type Elem = Token
     
     def getAST (data : String) : AST = getASTFromTokens(Lexer.getTokens(data))
-
-    def block : Parser[AST] = success(AST.Block())
     
     def getASTFromTokens (tokens : Seq[Token]) : AST = phrase(block)(new TokenReader(tokens)) match {
         case Success(result, _) => result
