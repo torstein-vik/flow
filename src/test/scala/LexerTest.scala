@@ -75,4 +75,20 @@ class FileLexerTest extends FunSuite {
         assert(Lexer.getTokens(file) === Seq(Semantic, Identifier("A"), Semicolon, Define, Identifier("f"), Colon, Identifier("A"), Machine, Identifier("A"), Semicolon))
     }
     
+    test ("Lexing example2.flw") {
+        val source = Source.fromURL(getClass.getResource("/example2.flw"))
+        val file = try source.mkString finally source.close
+        assert(Lexer.getTokens(file) === Seq(
+            Semantic, Identifier("Int"), Semicolon, 
+            Semantic, Singleton, Identifier("0"), TupleSeparator, Identifier("1"), TupleSeparator, Identifier("2"), TupleSeparator, Identifier("3"), TupleSeparator, Identifier("4"), TupleSeparator, Identifier("5"), Semicolon, 
+            Define, Identifier("+"), Colon, TupleOpen, Identifier("Int"), TupleSeparator, Identifier("Int"), TupleClose, Machine, Identifier("Int"), Semicolon,
+            Define, Identifier("+"), Colon, TupleOpen, Identifier("0"), TupleSeparator, Identifier("1"), TupleClose, Machine, Identifier("1"), Semicolon,
+            Define, Identifier("+"), Colon, TupleOpen, Identifier("1"), TupleSeparator, Identifier("1"), TupleClose, Machine, Identifier("2"), Semicolon,
+            Define, Identifier("+"), Colon, TupleOpen, Identifier("2"), TupleSeparator, Identifier("1"), TupleClose, Machine, Identifier("3"), Semicolon,
+            Define, Identifier("+"), Colon, TupleOpen, Identifier("3"), TupleSeparator, Identifier("1"), TupleClose, Machine, Identifier("4"), Semicolon,
+            Define, Identifier("+"), Colon, TupleOpen, Identifier("4"), TupleSeparator, Identifier("1"), TupleClose, Machine, Identifier("5"), Semicolon
+            
+        ))
+    }
+    
 }
