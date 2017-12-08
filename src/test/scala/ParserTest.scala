@@ -79,9 +79,10 @@ class FileParserTest extends FunSuite {
     test ("Parsing example1.flw") {
         val source = Source.fromURL(getClass.getResource("/example1.flw"))
         val file = try source.mkString finally source.close
-        assert(Parser.getAST(file) === Block(Semantic(Identifier("A")), Define(Identifier("f"), 
-            MachineTo(ClassTerm(IdentifiedClass(Identifier("A"))), 
-            FinalOutput(ClassTerm(IdentifiedClass(Identifier("A"))))))))
+        assert(Parser.getAST(file) === Block(
+            Semantic(Identifier("A")), 
+            Define(Identifier("f"), MachineTo(ClassTerm(IdentifiedClass(Identifier("A"))), FinalOutput(ClassTerm(IdentifiedClass(Identifier("A"))))))
+        ))
     }
     
     test ("Parsing example2.flw") {
