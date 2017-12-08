@@ -23,7 +23,7 @@ object Lexer extends RegexParsers {
     }
     
     /** Tokens that have some fixed string representation */
-    val fixedTokens = Seq(Semantic, Define, Colon, Semicolon, Machine, Flow, TupleOpen, TupleClose, TupleSeparator)
+    val fixedTokens = Seq(Semantic, Singleton, Define, Colon, Semicolon, Machine, Flow, TupleOpen, TupleClose, TupleSeparator)
     
     /** Parser for [[fixedTokens]] */
     def fixedToken : Parser[Token] = fixedTokens.map(token => token.chars ^^^ token).reduceLeft(_ | _)
