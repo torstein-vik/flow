@@ -31,7 +31,7 @@ object Lexer extends RegexParsers {
     /** Parser for [[Token.Numeric]] [[Token.Identifier]]s */
     def numeric : Parser[Token] = """-?\d+""".r ^^ (new Identifier(_) with Numeric)
     /** Parser for [[Token.Identifier]]s*/
-    def identifier : Parser[Token] = """[A-Za-z0-9]+""".r ^^ (new Identifier(_))
+    def identifier : Parser[Token] = """[\*\+A-Za-z0-9]+""".r ^^ (new Identifier(_))
     
     /** Parser for single line [[Token.Comment]]s*/
     def singlelinecomment : Parser[Token] = """\/\/.*\r?\n""".r ^^ (Comment(_))
