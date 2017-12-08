@@ -16,7 +16,10 @@ object AST {
     /** A [[Statement]] which declares a semantic class 
      *  @param classes list of [[parser.lexer.Token.Identifier]]s to be declared as classes
      */
-    case class Semantic(classes : parser.lexer.Token.Identifier*) extends Statement
+    case class Semantic(singleton : Boolean)(classes : parser.lexer.Token.Identifier*) extends Statement
+    object Semantic {
+        def apply(classes : parser.lexer.Token.Identifier*) : Semantic = new Semantic(false)(classes : _*)
+    }
     /** A [[Statement]] which defines a machine 
      *  @param machine [[parser.lexer.Token.Identifier]] of the new machine
      *  @param machinespec specification of this machine
