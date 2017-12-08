@@ -27,6 +27,9 @@ object Token {
     /** 'Semantic' [[Keyword]] [[Token]] */
     case object Semantic extends Keyword("Semantic")
     
+    /** 'Singleton' [[Keyword]] [[Token]] */
+    case object Singleton extends Keyword("Singleton")
+    
     /** 'Define' [[Keyword]] [[Token]] */
     case object Define extends Keyword("Define")
     
