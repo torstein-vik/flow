@@ -24,6 +24,21 @@ class BasicParserTest extends FunSuite {
         assert(ast === Block(Semantic(Identifier("A"), Identifier("B"), Identifier("C"))))
     }
     
+    test ("Parsing 'Semantic Singleton A;'") {
+        val ast = Parser.getAST("Semantic Singleton A;")
+        assert(ast === Block(Semantic(true)(Identifier("A"))))
+    }
+    
+    test ("Parsing 'Semantic Singleton A, B;'") {
+        val ast = Parser.getAST("Semantic Singleton A, B;")
+        assert(ast === Block(Semantic(true)(Identifier("A"), Identifier("B"))))
+    }
+    
+    test ("Parsing 'Semantic Singleton A, B, C;'") {
+        val ast = Parser.getAST("Semantic Singleton A, B, C;")
+        assert(ast === Block(Semantic(true)(Identifier("A"), Identifier("B"), Identifier("C"))))
+    }
+    
     test ("Ignoring singleline comments") {
         val ast = Parser.getAST("// Hey im a comment \n Semantic A;\n // hey again!\n")
         assert(ast === Block(Semantic(Identifier("A"))))
