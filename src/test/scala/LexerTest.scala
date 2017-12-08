@@ -9,6 +9,7 @@ class BasicLexerTest extends FunSuite {
     
     test ("Lexing keywords") {
         assert(Lexer.getTokens("Semantic") === Seq(Semantic))
+        assert(Lexer.getTokens("Singleton") === Seq(Singleton))
         assert(Lexer.getTokens("Define") === Seq(Define))
     }
     
@@ -29,6 +30,11 @@ class BasicLexerTest extends FunSuite {
     test ("Lexing 'Semantic A;'") {
         val tokens = Lexer.getTokens("Semantic A;")
         assert(tokens === Seq(Semantic, Identifier("A"), Semicolon))
+    }
+    
+    test ("Lexing 'Semantic Singleton A;'") {
+        val tokens = Lexer.getTokens("Semantic Singleton A;")
+        assert(tokens === Seq(Semantic, Singleton, Identifier("A"), Semicolon))
     }
     
     test ("Lexing '123456'") {
