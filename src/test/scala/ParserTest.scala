@@ -84,4 +84,19 @@ class FileParserTest extends FunSuite {
             FinalOutput(ClassTerm(IdentifiedClass(Identifier("A"))))))))
     }
     
+    test ("Parsing example2.flw") {
+        val source = Source.fromURL(getClass.getResource("/example2.flw"))
+        val file = try source.mkString finally source.close
+        assert(Parser.getAST(file) === Block(
+            Semantic(Identifier("Int")), 
+            Semantic(true, Identifier("0"), Identifier("1"), Identifier("2"), Identifier("3"), Identifier("4"), Identifier("5")), 
+            Define(Identifier("+"),MachineTo(TupleTerm(ClassTerm(IdentifiedClass(Identifier("Int"))), ClassTerm(IdentifiedClass(Identifier("Int")))),FinalOutput(ClassTerm(IdentifiedClass(Identifier("Int")))))), 
+            Define(Identifier("+"),MachineTo(TupleTerm(ClassTerm(IdentifiedClass(Identifier("0"))), ClassTerm(IdentifiedClass(Identifier("1")))),FinalOutput(ClassTerm(IdentifiedClass(Identifier("1")))))), 
+            Define(Identifier("+"),MachineTo(TupleTerm(ClassTerm(IdentifiedClass(Identifier("1"))), ClassTerm(IdentifiedClass(Identifier("1")))),FinalOutput(ClassTerm(IdentifiedClass(Identifier("2")))))), 
+            Define(Identifier("+"),MachineTo(TupleTerm(ClassTerm(IdentifiedClass(Identifier("2"))), ClassTerm(IdentifiedClass(Identifier("1")))),FinalOutput(ClassTerm(IdentifiedClass(Identifier("3")))))), 
+            Define(Identifier("+"),MachineTo(TupleTerm(ClassTerm(IdentifiedClass(Identifier("3"))), ClassTerm(IdentifiedClass(Identifier("1")))),FinalOutput(ClassTerm(IdentifiedClass(Identifier("4")))))), 
+            Define(Identifier("+"),MachineTo(TupleTerm(ClassTerm(IdentifiedClass(Identifier("4"))), ClassTerm(IdentifiedClass(Identifier("1")))),FinalOutput(ClassTerm(IdentifiedClass(Identifier("5"))))))
+        ))
+    }
+    
 }
