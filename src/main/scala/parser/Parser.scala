@@ -24,7 +24,9 @@ object Parser extends Parsers {
     def block : Parser[AST] = (statement <~ Semicolon).* ^^ (Block(_ : _*))
     
     def statement : Parser[Statement] = (semantic | define)
-    def semantic : Parser[AST.Semantic] = (Token.Semantic ~> rep1sep(identifier, TupleSeparator)) ^^ (AST.Semantic(_ : _*))
+    def semantic : Parser[AST.Semantic] = (Token.Semantic ~> Singleton.? ~ rep1sep(identifier, TupleSeparator)) ^^ {
+        case singleton ~ names => AST.Semantic(singleton != None)(names : _*)
+    }
     def define : Parser[AST.Define] = (Token.Define ~> (identifier <~ Colon) ~ machinespec) ^^ {case name ~ spec => AST.Define(name, spec)}
     
     def machinespec : Parser[MachineSpec] = ((flowterm ~ acceptMatch("machine or flow", {
