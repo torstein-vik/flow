@@ -1,5 +1,4 @@
-package io.github.torsteinvik.flow
-
+package io.github.torsteinvik.flow.parser
 
 /** An abstract root of an abstract syntax tree */
 abstract sealed class AST
@@ -14,31 +13,31 @@ object AST {
     /** An abstact statement to be 'executed' */
     abstract sealed class Statement 
     /** A [[Statement]] which declares a semantic class 
-     *  @param classes list of [[parser.lexer.Token.Identifier]]s to be declared as classes
+     *  @param classes list of [[lexer.Token.Identifier]]s to be declared as classes
      */
-    case class Semantic(singleton : Boolean, classes : parser.lexer.Token.Identifier*) extends Statement
+    case class Semantic(singleton : Boolean, classes : lexer.Token.Identifier*) extends Statement
     object Semantic {
-        def apply(classes : parser.lexer.Token.Identifier*) : Semantic = new Semantic(false, classes : _*)
+        def apply(classes : lexer.Token.Identifier*) : Semantic = new Semantic(false, classes : _*)
     }
     /** A [[Statement]] which defines a machine 
-     *  @param machine [[parser.lexer.Token.Identifier]] of the new machine
+     *  @param machine [[lexer.Token.Identifier]] of the new machine
      *  @param machinespec specification of this machine
      */
-    case class Define(machine : parser.lexer.Token.Identifier, machinespec : MachineSpec) extends Statement
+    case class Define(machine : lexer.Token.Identifier, machinespec : MachineSpec) extends Statement
     
     /** An abstract class for values corresponding to a class */
     abstract sealed class Class
-    /** A [[Class]] coming from an [[parser.lexer.Token.Identifier]] 
-     *  @param identifier The [[parser.lexer.Token.Identifier]] for this IdentifiedClass
+    /** A [[Class]] coming from an [[lexer.Token.Identifier]] 
+     *  @param identifier The [[lexer.Token.Identifier]] for this IdentifiedClass
      */
-    case class IdentifiedClass (identifier : parser.lexer.Token.Identifier) extends Class
+    case class IdentifiedClass (identifier : lexer.Token.Identifier) extends Class
     
     /** An abstract class for values corresponding to a class */
     abstract sealed class Machine
-    /** A [[Machine]] coming from an [[parser.lexer.Token.Identifier]] 
-     *  @param identifier The [[parser.lexer.Token.Identifier]] for this IdentifiedClass
+    /** A [[Machine]] coming from an [[lexer.Token.Identifier]] 
+     *  @param identifier The [[lexer.Token.Identifier]] for this IdentifiedClass
      */
-    case class IdentifiedMachine (identifier : parser.lexer.Token.Identifier) extends Machine
+    case class IdentifiedMachine (identifier : lexer.Token.Identifier) extends Machine
     
     /** An abstract class for the specification of a [[Machine]]. Implemented using a chain-based system. */
     abstract sealed class MachineSpec
