@@ -1,4 +1,8 @@
 
+### BETTER IDEA: Define custom syntax in separate file. Perhaps it's actually pointless?
+
+
+
 Semantic CommutativeRing;
 Syntax CR = CommutativeRing;
 
