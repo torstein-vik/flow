@@ -66,3 +66,26 @@ Syntax #R = cardinalityOf(R);
 
 
 Declare #Z/n := n;
+
+
+Define krullDimension[R]: CR => Cardinal;
+
+
+// Category
+
+Semantic Category;
+Semantic Hom[C : Category, A <: C, B <: C];
+ 
+Define composition[C : Category, A1 <: C, A2 <: C, A3 <: C] : (Hom[A2, A3], Hom[A1, A2]) => Hom[A1, A3];
+
+Semantic AbelianCategory : Category;
+
+// R-modules
+
+Semantic[R : CR] Module : AbelianCategory;
+Syntax R-module = Module[R];
+
+Declare Z -> (Z, Z) => (Z, Z) => Bool;
+
+
+
