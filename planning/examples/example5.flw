@@ -1,0 +1,64 @@
+
+Semantic CommutativeRing;
+Syntax CR = CommutativeRing;
+
+Semantic CommutativeRng;
+
+Define forgetful : CommutativeRing => CommutativeRng;
+
+// UFD => PID
+
+Define UFD : CommutativeRing => Bool;
+Define PID : CommutativeRing => Bool;
+
+
+Define boolImplication : (Bool, Bool) => Bool;
+
+Define boolImplication : (T, T) => T;
+Define boolImplication : (T, F) => F;
+Define boolImplication : (F, T) => T;
+Define boolImplication : (F, F) => T;
+
+Define propertyImplication[A, f: A => Bool, g: A => Bool]: CR -> (CR, CR) => (Bool, Bool) => Bool {
+    use (f,g);
+    use boolImplication;
+};
+
+Declare propertyImplication[CR, UFD, PID];
+
+
+
+
+// Concrete example
+
+Semantic Singleton ComplexNumbers : CommutativeRing;
+Syntax C = ComplexNumbers;
+
+Semantic Singleton Integers : CommutativeRing;
+Syntax Z = Integers;
+
+Semantic[n : Nat1] Singleton IntegerModulo : CommutativeRing;
+Syntax Z/n = IntegerModulo[n];
+
+
+
+// Define :=
+
+Define isEqual [A] (A, A) => Bool;
+Syntax x := y = isEqual(x, y);
+
+
+// Cardinality
+
+Semantic Cardinal;
+
+Semantic[n] Singleton Finite : Cardinal;
+Syntax n = Finite[n];
+
+Semantic Singleton CountableInf : Cardinal;
+
+Define cardinalityOf : CR => Cardinal;
+Syntax #R = cardinalityOf(R);
+
+
+Declare #Z/n := n;
